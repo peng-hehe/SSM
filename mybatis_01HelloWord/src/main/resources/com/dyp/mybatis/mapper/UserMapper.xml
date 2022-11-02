@@ -7,7 +7,7 @@
 <mapper namespace="com.dyp.mybatis.mapper.UserMapper">
 
     <!--id : 对应接口的方法名称.-->
-    <select id="insertUser">
+    <select id="insertUser" resultType="java.lang.Integer">
         INSERT INTO t_user VALUES (NULL, 'admin', '123456', 23, '男', '12345@qq.com');
     </select>
 </mapper>
