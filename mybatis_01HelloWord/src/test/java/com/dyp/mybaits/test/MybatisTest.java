@@ -1,6 +1,8 @@
 package com.dyp.mybaits.test;
 
 import com.dyp.mybatis.mapper.UserMapper;
+import com.dyp.mybatis.pojo.User;
+import com.dyp.mybatis.utils.SqlSessionUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -9,6 +11,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 public class MybatisTest {
 
@@ -52,6 +55,14 @@ public class MybatisTest {
         // 关闭资源
         sqlSession.close();
 
+    }
+
+    @Test
+    public void getAllUser(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> allUser = mapper.getAllUser();
+        System.out.println(allUser);
     }
 
 }

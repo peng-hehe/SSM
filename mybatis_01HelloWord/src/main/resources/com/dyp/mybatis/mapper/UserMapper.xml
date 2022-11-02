@@ -10,4 +10,10 @@
     <select id="insertUser" resultType="java.lang.Integer">
         INSERT INTO t_user VALUES (NULL, 'admin', '123456', 23, '男', '12345@qq.com');
     </select>
+    <select id="getUserById" resultType="com.dyp.mybatis.pojo.User">
+        select * from t_user where id = 1;
+    </select>
+    <select id="getAllUser" resultType="com.dyp.mybatis.pojo.User">
+        select * from t_user;
+    </select>
 </mapper>
