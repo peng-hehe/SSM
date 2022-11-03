@@ -5,6 +5,26 @@
 
 <configuration>
 
+<!--    properties?,settings?,typeAliases?,typeHandlers?,objectFactory?,objectWrapperFactory?,refl-->
+
+<!--    ectorFactory?,plugins?,environments?,databaseIdProvider?,mappers?-->
+
+    <!-- 引入 properties 文件 -->
+    <properties resource="jdbc.properties"></properties>
+
+    <settings>
+        <!-- 下划线 自动映射 驼峰 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!-- 别名 -->
+<!--    <typeAliases>-->
+<!--        <typeAlias type="com.dyp.mybatis.pojo.User" alias="user"></typeAlias>-->
+
+<!--        &lt;!&ndash; 也可以指定一个包下面的别名, 且不区分大小写, 跟上方 typeLias 不能同时使用 &ndash;&gt;-->
+<!--        <package name="com.dyp.mybatis.pojo"></package>-->
+<!--    </typeAliases>-->
+
     <!--
         设置链接数据库的环境
         default : 选择那个环境有效
@@ -17,10 +37,10 @@
 
             <!-- 数据源 即连接池-->
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/ssm?serverTimezone=UTC"/>
-                <property name="username" value="root"/>
-                <property name="password" value="root123456"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.user}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
