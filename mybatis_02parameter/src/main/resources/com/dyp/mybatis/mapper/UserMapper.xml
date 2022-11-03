@@ -52,6 +52,13 @@
     <select id="getCount" resultType="java.lang.Integer">
         select count(id) from t_user;
     </select>
+<!--    5.4查询到Map-->
+    <select id="getUserMapById" resultType="java.util.Map">
+        SELECT * FROM t_user WHERE id = ${id}
+    </select>
+    <select id="getAllUserToMap" resultType="java.util.Map">
+        select * from t_user;
+    </select>
 
 
 </mapper>

@@ -1,6 +1,7 @@
 package com.dyp.mybatis.mapper;
 
 import com.dyp.mybatis.pojo.User;
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -36,6 +37,11 @@ public interface UserMapper {
 
 //    5.3查询单行单列
     Integer getCount();
+
+//    5.4查询到Map
+    Map<String,Object> getUserMapById(@Param("id") String id);
+    @MapKey("id")
+    Map<String,Object> getAllUserToMap();
 
 
 }

@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.util.List;
+import java.util.Map;
 
 public class SelectUserTest {
 
@@ -25,17 +26,30 @@ public class SelectUserTest {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         List<User> allUser = mapper.getAllUser();
-        System.out.println(allUser);
+        allUser.forEach(System.out::println);
     }
 
 
-    //    5.3查询一个集合list
+    //    5.3查询一个单行
     @Test
     public void testGetCount(){
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         Integer count = mapper.getCount();
         System.out.println(count);
+    }
+
+
+    //5.4查询到Map
+    @Test
+    public void testGetUserToMap(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Map<String, Object> userMapById = mapper.getUserMapById("1");
+        System.out.println(userMapById);
+
+        Map<String, Object> allUserToMap = mapper.getAllUserToMap();
+        System.out.println(allUserToMap);
     }
 
 
