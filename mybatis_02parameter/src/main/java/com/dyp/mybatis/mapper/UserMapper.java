@@ -28,8 +28,11 @@ public interface UserMapper {
 
 
 //查询
-
+//      5。1查询一个实体对象
     User getUserById(@Param("id") String id);
+
+//    5.2查询一个集合list
+    List<User> getAllUser();
 
 
 }

@@ -39,10 +39,14 @@
 
 
 
-<!--  查询  -->
-<!--    查询一个实体对象-->
+<!--  5查询  -->
+<!--    1查询一个实体对象-->
     <select id="getUserById" resultType="com.dyp.mybatis.pojo.User">
         select * from t_user where id = #{id};
+    </select>
+<!--    2查询一个集合list-->
+    <select id="getAllUser" resultType="com.dyp.mybatis.pojo.User">
+        select * from t_user ;
     </select>
 
 
