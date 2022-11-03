@@ -59,6 +59,9 @@
     <select id="getAllUserToMap" resultType="java.util.Map">
         select * from t_user;
     </select>
+    <select id="getAllUserToListMap" resultType="java.util.Map">
+        select * from t_user;
+    </select>
 
 
 </mapper>

@@ -43,5 +43,8 @@ public interface UserMapper {
     @MapKey("id")
     Map<String,Object> getAllUserToMap();
 
+//    5.5查询List<Map>
+    List<Map<String,Object>> getAllUserToListMap();
+
 
 }

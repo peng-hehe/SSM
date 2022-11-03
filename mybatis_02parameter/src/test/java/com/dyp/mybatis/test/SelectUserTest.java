@@ -52,6 +52,15 @@ public class SelectUserTest {
         System.out.println(allUserToMap);
     }
 
+//    查询List<Map>
+
+    @Test
+    public void testAllUserToListMap(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<Map<String, Object>> allUserToListMap = mapper.getAllUserToListMap();
+        allUserToListMap.forEach(System.out::println);
+    }
 
 
 
