@@ -5,6 +5,7 @@
 
 <!-- namespace ：对应的mapper接口 -->
 <mapper namespace="com.dyp.mybatis.mapper.UserMapper">
+<!--    单个字面量类型-->
     <!-- 占位符方式 -->
     <select id="getUserByUsername01" resultType="com.dyp.mybatis.pojo.User">
         SELECT * FROM t_user WHERE username = #{username};
@@ -13,4 +14,12 @@
     <select id="getUserByUsername02" resultType="com.dyp.mybatis.pojo.User">
         SELECT * FROM t_user WHERE username = '${username}';
     </select>
+    <select id="checkLogin01" resultType="com.dyp.mybatis.pojo.User">
+        select * from t_user where username = #{param1} and password = #{param2};
+    </select>
+    <select id="checkLogin02" resultType="com.dyp.mybatis.pojo.User">
+        select * from t_user where username = #{arg0} and password = #{arg1};
+    </select>
+
+
 </mapper>

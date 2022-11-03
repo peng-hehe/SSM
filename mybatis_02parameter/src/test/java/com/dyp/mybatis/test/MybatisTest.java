@@ -22,4 +22,16 @@ public class MybatisTest {
         System.out.println(userByUsername02);
     }
 
+    //    多个字面量
+    @Test
+    public void checkLogin(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user01 = mapper.checkLogin01("admin","123456");
+        System.out.println(user01);
+
+        User user02 = mapper.checkLogin02("admin1","123456");
+        System.out.println(user02);
+    }
+
 }

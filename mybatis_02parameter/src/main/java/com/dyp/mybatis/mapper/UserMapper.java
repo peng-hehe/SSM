@@ -6,9 +6,13 @@ import java.util.List;
 
 public interface UserMapper {
 
-//    单个字面量
+//    单个字面量类型
     User getUserByUsername01(String username);
     User getUserByUsername02(String username);
+
+//    多个字面量类型
+    User checkLogin01(String username,String password);
+    User checkLogin02(String username,String password);
 
 
 
