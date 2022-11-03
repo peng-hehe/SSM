@@ -49,6 +49,17 @@ public class MybatisTest {
 
     }
 
+//    单个pojo
+    @Test
+    public void insertUser(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = new User(null, "张三", "123456", 18, "男", "123@qq.com");
+        mapper.insertUser(user);
+    }
+
+
+
 
 
 

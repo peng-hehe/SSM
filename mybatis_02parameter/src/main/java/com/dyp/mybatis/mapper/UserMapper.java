@@ -18,6 +18,9 @@ public interface UserMapper {
 //    map
     User checkLoginByMap(Map<String,Object> map);
 
+//    单个pojo
+    void insertUser(User user);
+
 
 
 }

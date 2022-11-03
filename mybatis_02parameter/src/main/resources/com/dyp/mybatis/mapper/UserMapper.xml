@@ -5,7 +5,10 @@
 
 <!-- namespace ：对应的mapper接口 -->
 <mapper namespace="com.dyp.mybatis.mapper.UserMapper">
-<!--    单个字面量类型-->
+    <insert id="insertUser">
+        INSERT INTO t_user VALUES (NULL, #{username}, #{password}, #{age}, #{gender}, #{email})
+    </insert>
+    <!--    单个字面量类型-->
     <!-- 占位符方式 -->
     <select id="getUserByUsername01" resultType="com.dyp.mybatis.pojo.User">
         SELECT * FROM t_user WHERE username = #{username};
