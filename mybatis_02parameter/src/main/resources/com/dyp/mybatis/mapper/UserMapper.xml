@@ -37,4 +37,13 @@
     </select>
 
 
+
+
+<!--  查询  -->
+<!--    查询一个实体对象-->
+    <select id="getUserById" resultType="com.dyp.mybatis.pojo.User">
+        select * from t_user where id = #{id};
+    </select>
+
+
 </mapper>

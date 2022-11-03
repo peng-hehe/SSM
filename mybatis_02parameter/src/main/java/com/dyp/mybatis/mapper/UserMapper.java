@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface UserMapper {
-
+//参数
 //    单个字面量类型
     User getUserByUsername01(String username);
     User getUserByUsername02(String username);
@@ -25,6 +25,11 @@ public interface UserMapper {
 //    @Param
     User checkLoginByParam(@Param("aa") String username,@Param("bb") String password);
 
+
+
+//查询
+
+    User getUserById(@Param("id") String id);
 
 
 }
