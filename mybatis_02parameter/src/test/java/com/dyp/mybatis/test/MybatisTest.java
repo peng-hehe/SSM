@@ -58,6 +58,17 @@ public class MybatisTest {
         mapper.insertUser(user);
     }
 
+//    注解@Param
+//    多个字面量
+@Test
+public void checkLoginByParam(){
+    SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+    UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+    User user = mapper.checkLoginByParam("admin","123456");
+    System.out.println(user);
+}
+
+
 
 
 

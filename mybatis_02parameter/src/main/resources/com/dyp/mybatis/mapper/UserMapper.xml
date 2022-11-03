@@ -5,10 +5,11 @@
 
 <!-- namespace ：对应的mapper接口 -->
 <mapper namespace="com.dyp.mybatis.mapper.UserMapper">
+<!--    4参数pojo-->
     <insert id="insertUser">
         INSERT INTO t_user VALUES (NULL, #{username}, #{password}, #{age}, #{gender}, #{email})
     </insert>
-    <!--    单个字面量类型-->
+    <!--    1单个字面量类型-->
     <!-- 占位符方式 -->
     <select id="getUserByUsername01" resultType="com.dyp.mybatis.pojo.User">
         SELECT * FROM t_user WHERE username = #{username};
@@ -17,14 +18,22 @@
     <select id="getUserByUsername02" resultType="com.dyp.mybatis.pojo.User">
         SELECT * FROM t_user WHERE username = '${username}';
     </select>
+<!--    2多个字面量-->
     <select id="checkLogin01" resultType="com.dyp.mybatis.pojo.User">
         select * from t_user where username = #{param1} and password = #{param2};
     </select>
     <select id="checkLogin02" resultType="com.dyp.mybatis.pojo.User">
         select * from t_user where username = #{arg0} and password = #{arg1};
     </select>
+
+<!--    3参数map-->
     <select id="checkLoginByMap" resultType="com.dyp.mybatis.pojo.User">
         select * from t_user where username = #{username} and password = #{password};
+    </select>
+
+<!--    5注解@Param-->
+    <select id="checkLoginByParam" resultType="com.dyp.mybatis.pojo.User">
+        select * from t_user where username = #{aa} and password = #{bb};
     </select>
 
 

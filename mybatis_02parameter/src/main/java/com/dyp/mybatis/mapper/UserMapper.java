@@ -1,6 +1,7 @@
 package com.dyp.mybatis.mapper;
 
 import com.dyp.mybatis.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -20,6 +21,9 @@ public interface UserMapper {
 
 //    单个pojo
     void insertUser(User user);
+
+//    @Param
+    User checkLoginByParam(@Param("aa") String username,@Param("bb") String password);
 
 
 
