@@ -1,6 +1,6 @@
 package com.dyp.mybaits.test;
 
-import com.dyp.mybatis.mapper.UserMapper;
+import com.dyp.mybatis.mapper.UserMapper01;
 import com.dyp.mybatis.pojo.User;
 import com.dyp.mybatis.utils.SqlSessionUtils;
 import org.apache.ibatis.io.Resources;
@@ -39,10 +39,10 @@ public class MybatisTest {
         // 代理模式 -》实现mapper接口，创建实现类
         //     通过mapper接口全类名找到映射文件
         //     通过mapper接口要调用的方法，找到映射文件的sql语句
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        UserMapper01 userMapper01 = sqlSession.getMapper(UserMapper01.class);
 
         // 执行SQL操作
-        Integer rows = userMapper.insertUser();
+        Integer rows = userMapper01.insertUser();
         System.out.println("rows = " + rows);
 
         //唯一标识：namespace.Id  找到sql
@@ -60,7 +60,7 @@ public class MybatisTest {
     @Test
     public void getAllUser(){
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        UserMapper01 mapper = sqlSession.getMapper(UserMapper01.class);
         List<User> allUser = mapper.getAllUser();
         System.out.println(allUser);
     }

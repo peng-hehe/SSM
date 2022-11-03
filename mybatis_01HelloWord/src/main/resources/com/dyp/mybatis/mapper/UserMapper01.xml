@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- namespace ：对应的mapper接口 -->
-<mapper namespace="com.dyp.mybatis.mapper.UserMapper">
+<mapper namespace="com.dyp.mybatis.mapper.UserMapper01">
 
     <!--id : 对应接口的方法名称.-->
     <select id="insertUser" resultType="java.lang.Integer">

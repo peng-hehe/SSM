@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace ：对应的mapper接口 -->
+<mapper namespace="com.dyp.mybatis.mapper.UserMapper">
+    <!-- 占位符方式 -->
+    <select id="getUserByUsername01" resultType="com.dyp.mybatis.pojo.User">
+        SELECT * FROM t_user WHERE username = #{username};
+    </select>
+    <!-- 字符串拼接方式 注意单引号-->
+    <select id="getUserByUsername02" resultType="com.dyp.mybatis.pojo.User">
+        SELECT * FROM t_user WHERE username = '${username}';
+    </select>
+</mapper>

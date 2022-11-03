@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface UserMapper {
 
-    Integer insertUser();
+//    单个字面量
+    User getUserByUsername01(String username);
+    User getUserByUsername02(String username);
 
-    User getUserById();
-    List<User> getAllUser();
 
 
 }
