@@ -29,4 +29,16 @@ public class SelectUserTest {
     }
 
 
+    //    5.3查询一个集合list
+    @Test
+    public void testGetCount(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Integer count = mapper.getCount();
+        System.out.println(count);
+    }
+
+
+
+
 }

@@ -48,6 +48,10 @@
     <select id="getAllUser" resultType="com.dyp.mybatis.pojo.User">
         select * from t_user ;
     </select>
+<!--    5.3查询单行单列-->
+    <select id="getCount" resultType="java.lang.Integer">
+        select count(id) from t_user;
+    </select>
 
 
 </mapper>

@@ -34,5 +34,8 @@ public interface UserMapper {
 //    5.2查询一个集合list
     List<User> getAllUser();
 
+//    5.3查询单行单列
+    Integer getCount();
+
 
 }
