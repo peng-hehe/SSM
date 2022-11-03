@@ -6,6 +6,7 @@ import com.dyp.mybatis.utils.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class MybatisTest {
@@ -33,5 +34,23 @@ public class MybatisTest {
         User user02 = mapper.checkLogin02("admin1","123456");
         System.out.println(user02);
     }
+
+    //    map
+    @Test
+    public void checkLoginByMap(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("username","admin");
+        map.put("password","123456");
+
+        User user = mapper.checkLoginByMap(map);
+        System.out.println(user);
+
+    }
+
+
+
+
 
 }
