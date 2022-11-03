@@ -52,7 +52,7 @@ public class SelectUserTest {
         System.out.println(allUserToMap);
     }
 
-//    查询List<Map>
+//    5.5查询List<Map>
 
     @Test
     public void testAllUserToListMap(){
@@ -61,6 +61,23 @@ public class SelectUserTest {
         List<Map<String, Object>> allUserToListMap = mapper.getAllUserToListMap();
         allUserToListMap.forEach(System.out::println);
     }
+
+//    6特殊查询
+@Test
+public void testGetUserByLike(){
+    SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+    UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+    List<User> user01 = mapper.getUserByLike01("ad");
+    user01.forEach(System.out::println);
+    List<User> user02 = mapper.getUserByLike02("ad");
+    user01.forEach(System.out::println);
+    List<User> user03 = mapper.getUserByLike03("ad");
+    user01.forEach(System.out::println);
+
+}
+
+
+
 
 
 

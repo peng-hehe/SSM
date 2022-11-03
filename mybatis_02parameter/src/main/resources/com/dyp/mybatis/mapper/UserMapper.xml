@@ -64,4 +64,18 @@
     </select>
 
 
+<!--    6特殊查询-->
+
+<!--    6。1模糊查询-->
+    <select id="getUserByLike01" resultType="com.dyp.mybatis.pojo.User">
+        SELECT * FROM t_user WHERE username like '%${mohu}%';
+    </select>
+    <select id="getUserByLike02" resultType="com.dyp.mybatis.pojo.User">
+        SELECT * FROM t_user WHERE username like CONCAt('%', #{mohu}, '%');
+    </select>
+    <select id="getUserByLike03" resultType="com.dyp.mybatis.pojo.User">
+        SELECT * FROM t_user WHERE username like "%"#{mohu}"%";
+    </select>
+
+
 </mapper>

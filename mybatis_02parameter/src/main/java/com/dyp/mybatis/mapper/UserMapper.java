@@ -47,4 +47,15 @@ public interface UserMapper {
     List<Map<String,Object>> getAllUserToListMap();
 
 
+
+
+//    特殊查询
+
+//    6.1模糊查询
+
+    List<User> getUserByLike01(@Param("mohu") String mohu);
+    List<User> getUserByLike02(@Param("mohu") String mohu);
+    List<User> getUserByLike03(@Param("mohu") String mohu);
+
+
 }
