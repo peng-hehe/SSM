@@ -96,6 +96,17 @@ public void testGetUserByLike(){
         t_user.forEach(System.out::println);
     }
 
+//6.4获取自增主键
+    @Test
+    public void testInsertUserGetId(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        User user = new User(null, "李四", "123456", 12, "男", "1234@qq.com");
+        mapper.insertUserGetId(user);
+        System.out.println(user);
+    }
+
+
 
 
 

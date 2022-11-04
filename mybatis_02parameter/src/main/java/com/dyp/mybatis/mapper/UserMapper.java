@@ -65,5 +65,8 @@ public interface UserMapper {
 
     List<User> getListByTable(@Param("tableName") String tableName);
 
+//    6.4获取自增主键
+    void insertUserGetId(User user);
+
 
 }

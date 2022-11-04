@@ -86,6 +86,12 @@
         select * from ${tableName};
     </select>
 
+<!--    6.4获取自增主键-->
+    <insert id="insertUserGetId" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO t_user VALUES(NULL, #{username}, #{password}, #{age}, #{gender}, #{email});
+    </insert>
+
+
 
 
 
