@@ -63,6 +63,7 @@ public class SelectUserTest {
     }
 
 //    6特殊查询
+//    6.1模糊查询
 @Test
 public void testGetUserByLike(){
     SqlSession sqlSession = SqlSessionUtils.getSqlSession();
@@ -75,6 +76,19 @@ public void testGetUserByLike(){
     user01.forEach(System.out::println);
 
 }
+
+    //    6特殊查询
+//    6.2批量删除
+    @Test
+    public void testDeleteMore(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.deleteMore("2,3");
+    }
+
+
+
+
 
 
 

@@ -57,5 +57,9 @@ public interface UserMapper {
     List<User> getUserByLike02(@Param("mohu") String mohu);
     List<User> getUserByLike03(@Param("mohu") String mohu);
 
+//    6.2批量删除
+
+    void deleteMore(@Param("ids") String ids);
+
 
 }

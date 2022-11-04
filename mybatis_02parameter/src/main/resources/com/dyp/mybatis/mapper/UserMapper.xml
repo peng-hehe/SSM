@@ -77,5 +77,11 @@
         SELECT * FROM t_user WHERE username like "%"#{mohu}"%";
     </select>
 
+<!--  6.2批量删除 -->
+    <delete id="deleteMore">
+        delete from t_user where id in(${ids})
+    </delete>
+
+
 
 </mapper>
