@@ -86,6 +86,16 @@ public void testGetUserByLike(){
         mapper.deleteMore("2,3");
     }
 
+//    6.3动态表名
+
+    @Test
+    public void testGetListByTable(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        List<User> t_user = mapper.getListByTable("t_user");
+        t_user.forEach(System.out::println);
+    }
+
 
 
 

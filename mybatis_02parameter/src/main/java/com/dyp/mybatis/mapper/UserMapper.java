@@ -61,5 +61,9 @@ public interface UserMapper {
 
     void deleteMore(@Param("ids") String ids);
 
+//6.3动态表名
+
+    List<User> getListByTable(@Param("tableName") String tableName);
+
 
 }

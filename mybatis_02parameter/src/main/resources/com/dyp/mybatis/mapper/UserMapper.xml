@@ -77,10 +77,15 @@
         SELECT * FROM t_user WHERE username like "%"#{mohu}"%";
     </select>
 
-<!--  6.2批量删除 -->
+    <!--  6.2批量删除 -->
     <delete id="deleteMore">
         delete from t_user where id in(${ids})
     </delete>
+<!--        6.3动态表名-->
+    <select id="getListByTable" resultType="com.dyp.mybatis.pojo.User">
+        select * from ${tableName};
+    </select>
+
 
 
 
