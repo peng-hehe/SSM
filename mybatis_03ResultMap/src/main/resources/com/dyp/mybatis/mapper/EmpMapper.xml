@@ -106,6 +106,13 @@
         SELECT * FROM t_emp WHERE emp_id = #{empId};
     </select>
 
+    <!-- Emp getDeptAndEmpdsStepTwo(@Param("empId") Integer empId);
+     这里没有使用resultMap, 因为已经开启了下划线转驼峰的配置
+-->
+    <select id="getDeptAndEmpByStepTwo" resultType="com.dyp.mybatis.pojo.Emp">
+        select * from t_emp where dept_id = #{deptId};
+    </select>
+
 
 
 </mapper>

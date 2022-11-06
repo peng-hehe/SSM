@@ -3,6 +3,8 @@ package com.dyp.mybatis.mapper;
 import com.dyp.mybatis.pojo.Emp;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface EmpMapper {
 
 //    7.1字段名和属性名不一致的情况
@@ -21,5 +23,8 @@ public interface EmpMapper {
 
 //    方法三：分步查询
     Emp getEmpAndDeptByStepOne(@Param("empId") Integer empId);
+
+
+    List<Emp> getDeptAndEmpByStepTwo(@Param("deptId") Integer deptId);
 
 }

@@ -12,4 +12,7 @@ public interface DeptMapper {
 
     //    方式一：级联 + collection
     Dept getDeptAndEmpsByDeptId(@Param("deptId") Integer deptId);
+
+
+    Dept getDeptAndEmpListStepOne(@Param("deptId") Integer deptId);
 }

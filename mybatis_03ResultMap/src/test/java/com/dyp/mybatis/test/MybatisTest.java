@@ -68,6 +68,15 @@ public void getDeptAndEmpsByDeptId(){
     System.out.println(dept);
 }
 
+//    方式一：级联 + collection
+@Test
+public void getDeptAndEmpdsStepOne(){
+    SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+    DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+    Dept dept = mapper.getDeptAndEmpListStepOne(1);
+    System.out.println(dept);
+}
+
 
 
 }
