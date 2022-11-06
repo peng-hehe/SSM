@@ -22,8 +22,4 @@ public interface EmpMapper {
 //    方法三：分步查询
     Emp getEmpAndDeptByStepOne(@Param("empId") Integer empId);
 
-
-
-
-
 }

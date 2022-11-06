@@ -1,5 +1,7 @@
 package com.dyp.mybatis.pojo;
 
+import java.util.List;
+
 public class Emp {
 
     private Integer empId;

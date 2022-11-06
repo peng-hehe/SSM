@@ -1,6 +1,8 @@
 package com.dyp.mybatis.test;
 
+import com.dyp.mybatis.mapper.DeptMapper;
 import com.dyp.mybatis.mapper.EmpMapper;
+import com.dyp.mybatis.pojo.Dept;
 import com.dyp.mybatis.pojo.Emp;
 import com.dyp.mybatis.utils.SqlSessionUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -53,6 +55,18 @@ public class MybatisTest {
         Emp empByEmpId = mapper.getEmpAndDeptByStepOne(1);
         System.out.println(empByEmpId);
     }
+
+
+//    7.3一对多关系
+
+//    方式一：级联 + collection
+@Test
+public void getDeptAndEmpsByDeptId(){
+    SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+    DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
+    Dept dept = mapper.getDeptAndEmpsByDeptId(1);
+    System.out.println(dept);
+}
 
 
 
