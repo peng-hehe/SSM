@@ -1,23 +1,23 @@
 package com.dyp.mybatis.pojo;
 
 public class Dept {
-    private Integer detpID;
+    private Integer deptId;
     private String deptName;
 
     public Dept() {
     }
 
     public Dept(Integer detpID, String deptName) {
-        this.detpID = detpID;
+        this.deptId = detpID;
         this.deptName = deptName;
     }
 
-    public Integer getDetpID() {
-        return detpID;
+    public Integer getDeptId() {
+        return deptId;
     }
 
-    public void setDetpID(Integer detpID) {
-        this.detpID = detpID;
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
     }
 
     public String getDeptName() {
@@ -31,7 +31,7 @@ public class Dept {
     @Override
     public String toString() {
         return "Dept{" +
-                "detpID=" + detpID +
+                "detpID=" + deptId +
                 ", deptName='" + deptName + '\'' +
                 '}';
     }

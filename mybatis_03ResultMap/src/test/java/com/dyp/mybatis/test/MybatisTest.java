@@ -24,4 +24,36 @@ public class MybatisTest {
         Emp empByEmpId = mapper.getEmpResultMapByEmpId(1);
         System.out.println(empByEmpId);
     }
+
+
+//7.2多对一关系
+
+
+    @Test
+    public void getEmpAndDeptByEmpId(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        Emp empByEmpId = mapper.getEmpAndDeptByEmpId(1);
+        System.out.println(empByEmpId);
+    }
+//方式二：association 标签。处理实体类类型的属性
+    @Test
+    public void getEmpAndDeptByEmpIdTwo(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        Emp empByEmpId = mapper.getEmpAndDeptByEmpIdTwo(1);
+        System.out.println(empByEmpId);
+    }
+
+//    方法三：分步查询
+    @Test
+    public void getEmpAndDeptByStep(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
+        Emp empByEmpId = mapper.getEmpAndDeptByStepOne(1);
+        System.out.println(empByEmpId);
+    }
+
+
+
 }
