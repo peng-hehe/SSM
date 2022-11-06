@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace ：对应的mapper接口 -->
+<mapper namespace="com.dyp.mybatis.mapper.EmpMapper">
+
+
+<!--    7.1字段名和属性名不一致的情况-->
+
+    <select id="getEmpByEmpId" resultType="com.dyp.mybatis.pojo.Emp">
+        select * from t_emp where emp_id =#{empId};
+    </select>
+
+<!--    使用 ResltMap -->
+    <!-- 相同的属性和名称不用写也行的 -->
+    <resultMap id="empResultMap" type="com.dyp.mybatis.pojo.Emp">
+        <!-- id 处理主键和属性字段的映射关系 -->
+        <id column="emp_id" property="empId"></id>
+        <!-- result 处理普通字段和属性的映射关系 -->
+        <result column="emp_name" property="empName"></result>
+        <result column="age" property="age"></result>
+        <result column="gender" property="gender"></result>
+        <result column="dept_id" property="deptId"></result>
+    </resultMap>
+
+    <select id="getEmpResultMapByEmpId" resultMap="empResultMap">
+        SELECT * FROM t_emp WHERE emp_id = #{empId};
+    </select>
+</mapper>
