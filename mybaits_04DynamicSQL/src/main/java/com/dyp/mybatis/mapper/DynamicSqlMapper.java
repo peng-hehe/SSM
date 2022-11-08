@@ -22,4 +22,7 @@ public interface DynamicSqlMapper {
     void insertMoreEmp(@Param("emps") List<Emp> emps);
 
     void deleteMoreEmp(@Param("empIds") Integer[] empIds);
+
+
+    List<Emp> getEmpByCondition(Emp emp);
 }

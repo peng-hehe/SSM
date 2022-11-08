@@ -72,7 +72,7 @@
     </select>
 
 
-<!-- foreach -->
+    <!-- foreach -->
 
     <insert id="insertMoreEmp">
         insert into t_emp values
@@ -87,5 +87,29 @@
             #{empId}
         </foreach>
     </delete>
+
+<!--sql片段-->
+    <sql id="empColumns">
+        emp_id, emp_name, age, gender, dept_id
+    </sql>
+
+    <select id="getEmpByCondition" resultType="com.dyp.mybatis.pojo.Emp">
+        select <include refid="empColumns"></include>
+        from t_emp
+        <where>
+            <if test="empName != null and empName != ''">
+                and emp_name LIKE "%"#{empName}"%"
+            </if>
+            <if test="age != null and age != ''">
+                AND age = #{age}
+            </if>
+            <if test="gender != null and gender != ''">
+                AND gender = #{gender}
+            </if>
+        </where>
+    </select>
+
+
+
 
 </mapper>

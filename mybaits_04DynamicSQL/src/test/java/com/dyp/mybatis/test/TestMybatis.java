@@ -3,6 +3,7 @@ package com.dyp.mybatis.test;
 import com.dyp.mybatis.mapper.DynamicSqlMapper;
 import com.dyp.mybatis.pojo.Emp;
 import com.dyp.mybatis.utils.SqlSessionUtils;
+import jdk.nashorn.internal.ir.CallNode;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -91,6 +92,15 @@ public class TestMybatis {
         DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
         Integer[] integers = {5, 6, 7};
         mapper.deleteMoreEmp(integers);
+    }
+
+//    Sql片段
+    @Test
+    public void getEmpByCondition(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+        List<Emp> emps = mapper.getEmpByCondition(new Emp(null, "", 18, "男"));
+        emps.forEach(System.out::println);
     }
 
 
