@@ -5,7 +5,7 @@
 
 <!-- namespace ：对应的mapper接口 -->
 <mapper namespace="com.dyp.mybatis.mapper.CacheMapper">
-
+    <cache/>
     <select id="getEmpById" resultType="com.dyp.mybatis.pojo.Emp">
         select * from t_emp where emp_id = #{empId}
     </select>
