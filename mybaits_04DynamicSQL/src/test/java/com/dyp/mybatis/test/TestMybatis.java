@@ -3,9 +3,11 @@ package com.dyp.mybatis.test;
 import com.dyp.mybatis.mapper.DynamicSqlMapper;
 import com.dyp.mybatis.pojo.Emp;
 import com.dyp.mybatis.utils.SqlSessionUtils;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class TestMybatis {
@@ -55,6 +57,40 @@ public class TestMybatis {
         DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
         List<Emp> empListByMoreTJ = mapper.getEmpListByMoreTJ3(new Emp(null, "", 18, "男"));
         empListByMoreTJ.forEach(System.out::println);
+    }
+
+//8。4
+
+    /**
+     *
+     */
+    @Test
+    public void getEmpByChoose(){
+
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+        List<Emp> empListByMoreTJ = mapper.getEmpByChoose(new Emp(null, "", 18, "男"));
+        empListByMoreTJ.forEach(System.out::println);
+    }
+
+//    foreach 批量添加
+    @Test
+    public void insertMoreEmp(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+        Emp emp1 = new Emp(null, "小明1", 20, "男");
+        Emp emp2 = new Emp(null, "小明2", 20, "男");
+        Emp emp3 = new Emp(null, "小明3", 20, "男");
+        List<Emp> emps = Arrays.asList(emp1, emp2, emp3);
+        mapper.insertMoreEmp(emps);
+    }
+
+    @Test
+    public void deleteMoreEmp(){
+        SqlSession sqlSession = SqlSessionUtils.getSqlSession();
+        DynamicSqlMapper mapper = sqlSession.getMapper(DynamicSqlMapper.class);
+        Integer[] integers = {5, 6, 7};
+        mapper.deleteMoreEmp(integers);
     }
 
 

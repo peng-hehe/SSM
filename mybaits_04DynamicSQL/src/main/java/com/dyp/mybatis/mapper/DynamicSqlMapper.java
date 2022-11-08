@@ -15,4 +15,11 @@ public interface DynamicSqlMapper {
 
 //     trim标签
     List<Emp> getEmpListByMoreTJ3(Emp emp);
+
+//    choose where otherwise(switch)
+    List<Emp> getEmpByChoose(Emp emp);
+
+    void insertMoreEmp(@Param("emps") List<Emp> emps);
+
+    void deleteMoreEmp(@Param("empIds") Integer[] empIds);
 }

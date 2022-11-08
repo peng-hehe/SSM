@@ -7,6 +7,7 @@
 <mapper namespace="com.dyp.mybatis.mapper.DynamicSqlMapper">
 
 
+
     <select id="getEmpListByMoreTJ" resultType="com.dyp.mybatis.pojo.Emp">
         select * from t_emp where 1=1
         <if test="empName != null and empName != ''">
@@ -19,7 +20,7 @@
             and gender = #{gender}
         </if>
     </select>
-<!--    where标签,不能去掉条件后面多余的and-->
+<!--    8.2where标签,不能去掉条件后面多余的and-->
     <select id="getEmpListByMoreTJ2" resultType="com.dyp.mybatis.pojo.Emp">
         select * from t_emp
         <where>
@@ -34,6 +35,7 @@
             </if>
         </where>
     </select>
+<!--    8.3 trim-->
     <select id="getEmpListByMoreTJ3" resultType="com.dyp.mybatis.pojo.Emp">
         select * from t_emp
         <trim prefix="where" suffixOverrides="and">
@@ -49,4 +51,41 @@
         </trim>
 
     </select>
+
+<!--    8.4getEmpByChoose 选择一个符合的条件-->
+    <select id="getEmpByChoose" resultType="com.dyp.mybatis.pojo.Emp">
+        select * from t_emp
+        <where>
+            <choose>
+                <when test="empName != null and empName != ''">
+                    emp_name = #{empName}
+                </when>
+                <when test="age != null and age != ''">
+                    age = #{age}
+                </when>
+                <when test="gender != null and gender != ''">
+                    gender = #{gender}
+                </when>
+            </choose>
+
+        </where>
+    </select>
+
+
+<!-- foreach -->
+
+    <insert id="insertMoreEmp">
+        insert into t_emp values
+        <foreach collection="emps" item="emp" separator=",">
+            (null,#{emp.empName},#{emp.age},#{emp.gender},null)
+        </foreach>
+    </insert>
+
+    <delete id="deleteMoreEmp">
+        delete from t_emp where emp_id in
+        <foreach collection="empIds" item="empId" separator="," open="(" close=")">
+            #{empId}
+        </foreach>
+    </delete>
+
 </mapper>
