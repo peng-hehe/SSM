@@ -160,4 +160,15 @@ public class Emp {
     public void setDeptId(Integer deptId) {
         this.deptId = deptId;
     }
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "empId=" + empId +
+                ", empName='" + empName + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", deptId=" + deptId +
+                '}';
+    }
 }
