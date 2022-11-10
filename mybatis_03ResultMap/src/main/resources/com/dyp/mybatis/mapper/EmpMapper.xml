@@ -97,7 +97,7 @@
             column: 第一步查询出来的外键
         -->
         <association property="dept" fetchType="eager"
-                     select="com.atguigu.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
+                     select="com.dyp.mybatis.mapper.DeptMapper.getEmpAndDeptByStepTwo"
                      column="dept_id" ></association>
     </resultMap>
 
