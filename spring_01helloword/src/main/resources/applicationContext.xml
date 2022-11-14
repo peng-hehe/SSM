@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <!--
+    id : 区分不同的组件, 且IOC容器根据id获取组件
+    默认单例模式
+ -->
+    <bean id="helloWorld" class="com.dyp.spring.pojo.HelloWorld"></bean>
+</beans>
