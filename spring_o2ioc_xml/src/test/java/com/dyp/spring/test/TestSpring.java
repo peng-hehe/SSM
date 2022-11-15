@@ -33,12 +33,57 @@ public class TestSpring {
         Student student = ioc.getBean("studentTwo",Student.class);
         System.out.println(student);
     }
-
+//扩展，继承或实现
     @Test
     public void testSpring4(){
         ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
         Person student = ioc.getBean(Person.class);
         System.out.println(student);
     }
+
+//    set注入
+
+    @Test
+    public void testSpring5(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentOne",Student.class);
+        System.out.println(student);
+    }
+
+    //    构造器注入
+
+    @Test
+    public void testSpring6(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentTwo",Student.class);
+        System.out.println(student);
+    }
+
+//    null
+    @Test
+    public void testSpring7(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentThree",Student.class);
+        String s = student.getSname().toString(); //报空指针异常
+        System.out.println(s);
+        System.out.println(student);
+    }
+    //    xml实体
+    @Test
+    public void testSpring8(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentFour",Student.class);
+        System.out.println(student);
+    }
+
+    //    CDATA节
+    @Test
+    public void testSpring9(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentFive",Student.class);
+        System.out.println(student);
+    }
+
+
 
 }

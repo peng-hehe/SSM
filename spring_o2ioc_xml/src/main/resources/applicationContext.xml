@@ -3,8 +3,42 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="studentOne" class="com.dyp.spring.pojo.Student"></bean>
-    <bean id="studentTwo" class="com.dyp.spring.pojo.Student"></bean>
+    <bean id="studentOne" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="张三"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+    </bean>
+
+    <bean id="studentTwo" class="com.dyp.spring.pojo.Student">
+        <constructor-arg value="1002"></constructor-arg>
+        <constructor-arg value="李四"></constructor-arg>
+        <constructor-arg value="20"></constructor-arg>
+        <constructor-arg value="女"></constructor-arg>
+    </bean>
+
+    <bean id="studentThree" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname">
+            <null/>
+        </property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+    </bean>
+    <bean id="studentFour" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="a&lt;b"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+    </bean>
+    <bean id="studentFive" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname">
+            <value>"<![CDATA[a<b<王五>]]>"</value>
+        </property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+    </bean>
 
     <bean id="helloWorld1" class="com.dyp.spring.pojo.HelloWorld"></bean>
 
