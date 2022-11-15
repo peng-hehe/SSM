@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="helloWorld1" class="com.dyp.spring.pojo.HelloWorld"></bean>
+
     <bean id="studentOne" class="com.dyp.spring.pojo.Student">
         <property name="sid" value="1001"></property>
         <property name="sname" value="张三"></property>
@@ -40,6 +42,42 @@
         <property name="gender" value="男"></property>
     </bean>
 
-    <bean id="helloWorld1" class="com.dyp.spring.pojo.HelloWorld"></bean>
+    <bean id="studentSix" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="赵六"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <!--ref属性：引用IOC容器中某个bean的id，将所对应的bean为属性赋值-->
+        <property name="clazz" ref="ClazzOne"></property>
+    </bean>
+    <bean id="ClazzOne" class="com.dyp.spring.pojo.Clazz">
+        <property name="clazzId" value="1"></property>
+        <property name="clazzName" value="一年级一班"></property>
+    </bean>
+
+    <bean id="studentSeven" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="赵六"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <property name="clazz">
+            <!--在一个bean中再声明一个bean就是内部bean-->
+            <!--内部bean只能用于给属性赋值，不能在外部通过IOC容器获取，因此可以省略id属性-->
+            <bean id="clazzInner" class="com.dyp.spring.pojo.Clazz">
+                <property name="clazzId" value="1"></property>
+                <property name="clazzName" value="一年级二班"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="studentSeven" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="赵六"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <!--一定先引用某个bean为属性赋值，才可以使用级联方式更新属性-->
+        <property name="clazz.clazzId" value="1"></property>
+        <property name="clazz.clazzName" value="一年级三班"></property>
+    </bean>
 
 </beans>

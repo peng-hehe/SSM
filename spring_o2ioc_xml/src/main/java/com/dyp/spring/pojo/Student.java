@@ -10,6 +10,27 @@ public class Student implements Person {
 
     private String gender;
 
+    private Clazz clazz;
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "sid=" + sid +
+                ", sname='" + sname + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", clazz=" + clazz +
+                '}';
+    }
+
+    public Clazz getClazz() {
+        return clazz;
+    }
+
+    public void setClazz(Clazz clazz) {
+        this.clazz = clazz;
+    }
+
     public Student() {
     }
 
@@ -52,13 +73,4 @@ public class Student implements Person {
         this.gender = gender;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "sid=" + sid +
-                ", sname='" + sname + '\'' +
-                ", age=" + age +
-                ", gender='" + gender + '\'' +
-                '}';
-    }
 }

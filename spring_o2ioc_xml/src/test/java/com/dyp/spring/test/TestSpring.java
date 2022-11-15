@@ -84,6 +84,22 @@ public class TestSpring {
         System.out.println(student);
     }
 
+    //    CDATA节
+    @Test
+    public void testSpring10(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentSix",Student.class);
+        System.out.println(student);
+    }
+
+    //    CDATA节
+    @Test
+    public void testSpring11(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentSeven",Student.class);
+        System.out.println(student);
+    }
+
 
 
 }
