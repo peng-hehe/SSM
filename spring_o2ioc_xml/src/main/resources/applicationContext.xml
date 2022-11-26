@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="helloWorld1" class="com.dyp.spring.pojo.HelloWorld"></bean>
 
@@ -42,7 +42,7 @@
         <property name="gender" value="男"></property>
     </bean>
 
-    <bean id="studentSix" class="com.dyp.spring.pojo.Student">
+    <bean id="studentClazzOne" class="com.dyp.spring.pojo.Student">
         <property name="sid" value="1001"></property>
         <property name="sname" value="赵六"></property>
         <property name="age" value="18"></property>
@@ -55,7 +55,7 @@
         <property name="clazzName" value="一年级一班"></property>
     </bean>
 
-    <bean id="studentSeven" class="com.dyp.spring.pojo.Student">
+    <bean id="studentClazzTwo" class="com.dyp.spring.pojo.Student">
         <property name="sid" value="1001"></property>
         <property name="sname" value="赵六"></property>
         <property name="age" value="18"></property>
@@ -64,20 +64,95 @@
             <!--在一个bean中再声明一个bean就是内部bean-->
             <!--内部bean只能用于给属性赋值，不能在外部通过IOC容器获取，因此可以省略id属性-->
             <bean id="clazzInner" class="com.dyp.spring.pojo.Clazz">
-                <property name="clazzId" value="1"></property>
+                <property name="clazzId" value="2"></property>
                 <property name="clazzName" value="一年级二班"></property>
             </bean>
         </property>
     </bean>
 
-    <bean id="studentSeven" class="com.dyp.spring.pojo.Student">
+    <bean id="studentClazzThree" class="com.dyp.spring.pojo.Student">
         <property name="sid" value="1001"></property>
         <property name="sname" value="赵六"></property>
         <property name="age" value="18"></property>
         <property name="gender" value="男"></property>
         <!--一定先引用某个bean为属性赋值，才可以使用级联方式更新属性-->
-        <property name="clazz.clazzId" value="1"></property>
+        <property name="clazz" ref="ClazzOne"></property>
+        <property name="clazz.clazzId" value="3"></property>
         <property name="clazz.clazzName" value="一年级三班"></property>
     </bean>
+<!--数组注入-->
+    <bean id="studentHobby" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="sname" value="赵六"></property>
+        <property name="age" value="18"></property>
+        <property name="gender" value="男"></property>
+        <property name="clazz" ref="ClazzOne"></property>
+        <property name="hobbies">
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+    </bean>
+
+<!--    List注入-->
+    <bean id="clazzListOne" class="com.dyp.spring.pojo.Clazz">
+        <property name="clazzId" value="111"></property>
+        <property name="clazzName" value="java班级"></property>
+        <property name="students">
+            <list>
+                <ref bean="studentClazzOne"></ref>
+                <ref bean="studentClazzTwo"></ref>
+                <ref bean="studentClazzThree"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="clazzListTwo" class="com.dyp.spring.pojo.Clazz">
+        <property name="clazzId" value="111"></property>
+        <property name="clazzName" value="java班级"></property>
+        <property name="students" ref="ClazzList"></property>
+    </bean>
+    <util:list id="ClazzList">
+        <ref bean="studentClazzOne"></ref>
+        <ref bean="studentClazzTwo"></ref>
+        <ref bean="studentClazzThree"></ref>
+    </util:list>
+
+<!--    map集合注入-->
+    <bean id="teacherMapOne" class="com.dyp.spring.pojo.Teacher">
+        <property name="teacherId" value="1101"></property>
+        <property name="teacherName" value="瑞兹"></property>
+    </bean>
+    <bean id="teacherMapTwo" class="com.dyp.spring.pojo.Teacher">
+        <property name="teacherId" value="1102"></property>
+        <property name="teacherName" value="黑默丁格"></property>
+    </bean>
+    
+    <bean id="studentMapOne" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="teacherMap">
+            <map>
+                <entry>
+                    <key><value>key01</value></key>
+                    <ref bean="teacherMapOne"></ref>
+                </entry>
+                <entry key="key02" value-ref="teacherMapTwo"></entry>
+            </map>
+        </property>
+    </bean>
+
+
+    <bean id="studentMapTwo" class="com.dyp.spring.pojo.Student">
+        <property name="sid" value="1001"></property>
+        <property name="teacherMap" ref="studentMap"></property>
+    </bean>
+    <util:map id="studentMap">
+        <entry key="key001" value-ref="teacherMapOne"></entry>
+        <entry key="key002" value-ref="teacherMapTwo"></entry>
+    </util:map>
+
+
 
 </beans>

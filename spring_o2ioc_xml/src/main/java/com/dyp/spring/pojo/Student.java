@@ -1,5 +1,8 @@
 package com.dyp.spring.pojo;
 
+import java.util.Arrays;
+import java.util.Map;
+
 public class Student implements Person {
 
     private Integer sid;
@@ -12,6 +15,10 @@ public class Student implements Person {
 
     private Clazz clazz;
 
+    private String[] hobbies;
+
+    private Map<String,Teacher> teacherMap;
+
     @Override
     public String toString() {
         return "Student{" +
@@ -20,7 +27,25 @@ public class Student implements Person {
                 ", age=" + age +
                 ", gender='" + gender + '\'' +
                 ", clazz=" + clazz +
+                ", hobbies=" + Arrays.toString(hobbies) +
+                ", teacherMap=" + teacherMap +
                 '}';
+    }
+
+    public Map<String, Teacher> getTeacherMap() {
+        return teacherMap;
+    }
+
+    public void setTeacherMap(Map<String, Teacher> teacherMap) {
+        this.teacherMap = teacherMap;
+    }
+
+    public String[] getHobbies() {
+        return hobbies;
+    }
+
+    public void setHobbies(String[] hobbies) {
+        this.hobbies = hobbies;
     }
 
     public Clazz getClazz() {

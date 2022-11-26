@@ -1,5 +1,6 @@
 package com.dyp.spring.test;
 
+import com.dyp.spring.pojo.Clazz;
 import com.dyp.spring.pojo.HelloWorld;
 import com.dyp.spring.pojo.Person;
 import com.dyp.spring.pojo.Student;
@@ -84,19 +85,68 @@ public class TestSpring {
         System.out.println(student);
     }
 
-    //    CDATA节
+    //    类类型外部
     @Test
-    public void testSpring10(){
+    public void studentClazzOne(){
         ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Student student = ioc.getBean("studentSix",Student.class);
+        Student student = ioc.getBean("studentClazzOne",Student.class);
         System.out.println(student);
     }
 
-    //    CDATA节
+    //    内部
     @Test
-    public void testSpring11(){
+    public void studentClazzTwo(){
         ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
-        Student student = ioc.getBean("studentSeven",Student.class);
+        Student student = ioc.getBean("studentClazzTwo",Student.class);
+        System.out.println(student);
+    }
+
+    //    级联
+    @Test
+    public void studentClazzThree(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentClazzThree",Student.class);
+        System.out.println(student);
+    }
+
+
+    //    数组
+    @Test
+    public void studentArray(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentHobby",Student.class);
+        System.out.println(student);
+    }
+
+    //    list集合
+    @Test
+    public void clazzListOne(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Clazz clazzListOne = ioc.getBean("clazzListOne", Clazz.class);
+        System.out.println(clazzListOne);
+    }
+
+    @Test
+    public void clazzListTwo(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Clazz clazzListOne = ioc.getBean("clazzListTwo", Clazz.class);
+        System.out.println(clazzListOne);
+    }
+
+
+//    map集合
+//    CDATA节
+    @Test
+    public void studentMapOne(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentMapOne",Student.class);
+        System.out.println(student);
+    }
+
+    @Test
+    public void studentMapTwo(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Student student = ioc.getBean("studentMapTwo",Student.class);
         System.out.println(student);
     }
 

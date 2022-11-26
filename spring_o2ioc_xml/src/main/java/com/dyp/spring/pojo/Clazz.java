@@ -1,10 +1,14 @@
 package com.dyp.spring.pojo;
 
+import java.util.List;
+
 public class Clazz {
 
     private Integer clazzId;
 
     private String clazzName;
+
+    private List<Student> students;
 
     public Clazz() {
     }
@@ -30,11 +34,20 @@ public class Clazz {
         this.clazzName = clazzName;
     }
 
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
+    }
+
     @Override
     public String toString() {
         return "Clazz{" +
                 "clazzId=" + clazzId +
                 ", clazzName='" + clazzName + '\'' +
+                ", students=" + students +
                 '}';
     }
 }
