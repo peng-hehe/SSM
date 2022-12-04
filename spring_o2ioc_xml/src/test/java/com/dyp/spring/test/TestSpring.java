@@ -150,6 +150,14 @@ public class TestSpring {
         System.out.println(student);
     }
 
+//    P空间
+    @Test
+    public void studentP(){
+        ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
+        Object studentSix = ioc.getBean("studentSix");
+        System.out.println(studentSix);
+    }
+
 
 
 }
