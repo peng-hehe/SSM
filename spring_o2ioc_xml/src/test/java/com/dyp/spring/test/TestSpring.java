@@ -156,6 +156,7 @@ public class TestSpring {
         ClassPathXmlApplicationContext ioc = new ClassPathXmlApplicationContext("applicationContext.xml");
         Object studentSix = ioc.getBean("studentSix");
         System.out.println(studentSix);
+
     }
 
 
