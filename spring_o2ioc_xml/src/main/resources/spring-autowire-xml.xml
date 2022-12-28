@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--
+1. no，defoult：表示不装配，不自动匹配，属性使用默认值
+2. byType：根据要赋值的属性的类型，在ioc容器中匹配某个bean，为属性赋值
+    1. 通过类型没有匹配到bean，此时不装配，属性使用默认值
+    2. 若通过类型匹配到多个bean，会抛出异常，NoUniqueBeanDefinitionException
+3. byName：要赋值的属性名作为bean的id在ico容器中匹配某个bean，为属性赋值
+    1. 当类型匹配的bean有多个时，可以使用byName实现自动装配-->
+
+    <bean id="userController" class="com.dyp.spring.controller.UserController" autowire="byName">
+<!--        <property name="userService" ref="userService"></property>-->
+    </bean>
+
+    <bean id="userService" class="com.dyp.spring.service.impl.UserServiceImpl" autowire="byName">
+<!--        <property name="userDao" ref="userDao"></property>-->
+    </bean>
+
+    <bean id="userDao" class="com.dyp.spring.dao.impl.UserDaoImpl"></bean>
+
+</beans>
