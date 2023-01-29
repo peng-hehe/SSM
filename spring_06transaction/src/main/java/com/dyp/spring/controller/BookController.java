@@ -12,8 +12,8 @@ public class BookController {
     @Autowired
     private CheckoutService checkoutService;
 
-    public void buyBook(Integer bookId , Integer userId){
-        bookService.buyBook(bookId,userId);
+    public void updateBuyBook(Integer bookId , Integer userId){
+        bookService.updateBuyBook(bookId,userId);
     }
 
     public void checkout(Integer userId,Integer[] bookIds){

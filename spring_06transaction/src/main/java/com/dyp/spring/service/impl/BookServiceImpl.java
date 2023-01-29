@@ -13,8 +13,7 @@ public class BookServiceImpl implements BookService {
     private BookDao bookDao;
 //    我們不做数据的检验和抛出异常, 借助数据库 unsigned 类型抛出异常
     @Override
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void buyBook(Integer bookId, Integer userId) {
+    public void updateBuyBook(Integer bookId, Integer userId) {
         //查询图书的价格
         Integer price = bookDao.getPriceById(bookId);
         //更新图书的库存

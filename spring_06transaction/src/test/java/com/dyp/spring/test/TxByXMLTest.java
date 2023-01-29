@@ -16,7 +16,7 @@ public class TxByXMLTest {
     private BookController bookController;
     @Test
     public void test(){
-        bookController.buyBook(1,1);
+        bookController.updateBuyBook(1,1);
     }
 
     @Test

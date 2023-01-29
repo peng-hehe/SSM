@@ -32,7 +32,7 @@
     <!-- 配置事务的切面 -->
     <aop:config>
         <!-- 考虑到后面整合 SpringSecurity, 避免把 UserDetialsService 扫描到事务控制，因此让切入点表达式定位到 impl  -->
-        <aop:pointcut id="txPointcut" expression="execution(* *..*ServiceImpl.*(..))"/>
+        <aop:pointcut id="txPointcut" expression="execution(* com.dyp.spring.service.impl.*(..))"/>
 
         <!-- 将切入点表达式 和 事务的通知关联起来 -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
@@ -52,10 +52,11 @@
                 默认：运行时异常
                 建议：编译时异常和运行时异常都回滚.
             -->
-            <tx:method name="save*" propagation="REQUIRED" rollback-for="Exception"/>
-            <tx:method name="update*" propagation="REQUIRED" rollback-for="Exception"/>
-            <tx:method name="remove*" propagation="REQUIRED" rollback-for="Exception"/>
-            <tx:method name="batch*" propagation="REQUIRED" rollback-for="Exception"/>
+            <tx:method name="check*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="save*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="update*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="remove*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
+            <tx:method name="batch*" propagation="REQUIRED" rollback-for="java.lang.Exception"/>
         </tx:attributes>
     </tx:advice>
 
